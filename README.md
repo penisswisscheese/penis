@@ -9,4 +9,4 @@ penis use javascript with jquery to acheive erection
 
 send penis compliments to penisswisscheese@gmail.com
 
-always get tested regularly, especially after using penis
+get tested regularly when using penis
