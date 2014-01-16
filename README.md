@@ -1,10 +1,12 @@
 penis
 =====
 
+[view penis](http://penisswisscheese.github.io/penis/)
+
 penis penis penis penis
 
 penis use javascript with jquery to acheive erection 
 
-send penis complaints to penisswisscheese@gmail.com
+send penis compliments to penisswisscheese@gmail.com
 
-always wear condom
+always get tested regularly, especially after using penis
