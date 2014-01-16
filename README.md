@@ -5,6 +5,8 @@ penis
 
 refresh for more penis
 
+some penises are clicky so click them
+
 penis use javascript with jquery to acheive erection 
 
 send penis compliments to penisswisscheese@gmail.com
