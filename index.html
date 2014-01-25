@@ -5,7 +5,7 @@
 .penis
 {
 	word-break: break-all;
-    word-wrap:break-word;
+        word-wrap:break-word;
 	overflow-y:hidden;
 	overflow-x:hidden;
 	height: 100%;
@@ -23,6 +23,13 @@
 {
 	color:#aaaaaa;
 } 
+
+.rainbow {
+        background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+        color:transparent;
+        -webkit-background-clip: text;
+}
+
 </style>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -93,15 +100,19 @@ penisLinks = [
 	'http://onlinelibrary.wiley.com/doi/10.1046/j.1464-410X.1996.85023.x/abstract',
 	'http://en.inkei.net/',
 	'http://www.livescience.com/14891-finger-length-ratio-penis-size.html',
-	'http://en.wiktionary.org/wiki/Penis'
+	'http://en.wiktionary.org/wiki/Penis',
+        'http://www.huffingtonpost.com/nico-lang/i-dont-want-to-see-a-pict_b_4659013.html',
+        'http://www.huffingtonpost.com/nico-lang/i-dont-want-to-see-a-pict_b_4659013.html',
+        'http://www.youtube.com/watch?v=5O1ipRDrw6w',       
 ];
-				
+	
+
 function getPenisPhrase() {
 	return rouletteSample([
-		{prob:100.0,func:text("penis")}, // average penis (~6)
+		{prob:100.0,func:text("penis")}, // average penis (~6 in)
 		{prob:30.0,func:function() { // clicky penis
 			link = uniformRouletteSample(penisLinks);
-			return "<a href=\"" + link + "\" class=\"clicky-penis\">penis" + "</a>"; 
+			return "<a href=\"" + link + "\" class=\"clicky-penis\">penis" + "</a>";
 		}},
 		{prob:3.0,func:function() {  // loud penis
 			return 'penis' + Array(randRange(1,30)).join('!') + Array(randRange(1,3)).join('1')
@@ -162,8 +173,13 @@ function getPenisPhrase() {
 		{prob:1.0,func:text("the only thing longer than my penis is everything")},
 		{prob:1.0,func:text("send all compliments to penisswisscheese@gmail.com")},
 		{prob:1.0,func:text("fork me on github at https://github.com/penisswisscheese/penis")},
-	
-		{prob:1.0,func:function() {  // long penis
+		{prob:1.0,func:text("which weighs more a pound of penis or a pound of dick")},
+		{prob:1.0,func:text("the longest penis is 13.5 in")},
+                {prob:1.0,func:text("what does all this penis mean")},
+                {prob:1.0,func:text("its not how big it is oh wait it actually is")},
+		{prob:1.0,func:text("#penis")},
+		{prob:1.0,func:text("do your penis hang low do it wobble to and fro")}, // batman
+                {prob:1.0,func:function() {  // long penis
 			var penis = "";
 			if (randRange(1,5) < 2) penis += Array(randRange(1,50) + 1).join('p'); else penis += "p";
 			if (randRange(1,5) < 2) penis += Array(randRange(1,50) + 1).join('e'); else penis += "e";
@@ -181,11 +197,12 @@ function getPenisPhrase() {
 			if (randRange(1,5) < 3) penis += Array(randRange(1,5000) + 1).join('s'); else penis += "s";
 			return penis;
 		}},
-		{prob:1.0,func:text( "batman")}, // batman
+                {prob:0.8,func:text("<span class='rainbow'>penis</span>")}
 		]);
 }
 
 $(document).ready(function(){
+
 
 	(function($) {
     $.fn.textOverflows = function() {
