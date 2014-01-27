@@ -1,0 +1,234 @@
+<html>
+<head>
+
+<style type="text/css">
+.penis
+{
+	word-break: break-all;
+        word-wrap:break-word;
+	overflow-y:hidden;
+	overflow-x:hidden;
+	height: 100%;
+	width: 100%;
+	white-space: pre-wrap;
+}
+
+.clicky-penis
+{
+	color:black; 
+	text-decoration:none;
+}
+
+.clicky-penis:hover
+{
+	color:#aaaaaa;
+} 
+
+.rainbow {
+        background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+        color:transparent;
+        -webkit-background-clip: text;
+}
+
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+
+function rouletteSample(sampleSpace) {
+	var totalProb = 0;
+	for (var i = 0; i < sampleSpace.length; i++) {
+		totalProb += sampleSpace[i].prob;
+	}
+	var spin = Math.random()*totalProb;
+	var currentSpinVal = 0;
+	var currentIndex = -1;
+	while (currentSpinVal < spin) {
+		currentIndex++;
+		currentSpinVal += sampleSpace[currentIndex].prob;
+	}
+	return sampleSpace[currentIndex].func();
+}
+
+function uniformRouletteSample(sampleSpace) {
+	rouletteSampleSpace = [];
+	for (var i = 0; i < sampleSpace.length; i++) {
+		rouletteSampleSpace.push({prob:1.0,func:text(sampleSpace[i])});
+	}
+	return rouletteSample(rouletteSampleSpace);
+}
+
+function randRange(min,max) {
+	return Math.floor(Math.random()*(max-min + 1)) + min;
+}
+
+function text(text) {
+	return function() {return text;};
+}
+
+penisLinks = [
+	'http://global3.memecdn.com/seriously-though-penis-or-penis_o_449666.webp',
+	'http://www.quickmeme.com/meme/3s5iv3',
+	'http://i.imgur.com/MlHm0Zg.gif?1',
+	'http://assets.diylol.com/hfs/f29/951/485/resized/advice-dog-meme-generator-say-hi-to-kids-with-your-penis-7fef8e.jpg',
+	'http://weknowmemes.com/generator/uploads/generated/g1327709296308237864.jpg',
+	'http://cdn.memegenerator.net/instances/500x/43877541.jpg',
+	'http://s2.quickmeme.com/img/e8/e8368e23e3b17e188b5ac046efa25f9acb3484d2a91e1adbcee861cd438e51c7.jpg',
+	'http://global3.memecdn.com/my-penis-is-a-dragon_o_445079.jpg',
+	'http://cdn.memegenerator.net/instances/400x/36713406.jpg',
+	'http://i.imgur.com/c1angbr.jpg',
+	'http://cdn.memegenerator.net/instances/500x/34140714.jpg',
+	'http://www.funniestmemes.com/wp-content/uploads/Funniest_Memes_god-gave-me-a-penis-and-a-brain_18873.jpeg',
+	'http://www.popsci.com/science/article/2013-04/penis-size-matters-study-says',
+	'http://en.wikipedia.org/wiki/Penis',
+	'http://bigthink.com/dollars-and-sex/the-boner-curve-new-study-links-penis-size-to-economic-growth',
+	'http://i1.wp.com/memecollection.net/wp-content/uploads/2013/10/your-a-penis.jpg?resize=501%2C591',
+	'http://imgace.com/wp-content/uploads/2011/09/dr-manhattan-penis.jpg',
+	'http://www.funnymemes.com/wp-content/uploads/2013/08/Cat-memes-my-cat-has-a-penis-on-his-face1.jpg',
+	'http://www.troll.me/images/john-the-manliest-of-men/penis-penis-penis-penispenispenis.jpg',
+	'http://instantmememaker.com/wp-content/themes/viralimagehubpro/images/memes/4e14b33d5c51d455d6ff53a500ac4ad2.png',
+	'http://3.bp.blogspot.com/-EKxRPWV2Fec/UihPku8yq_I/AAAAAAAADjg/76HfRNBpU20/s1600/erectus-if-you-know-what-i-mean_o_1882075.jpg',
+	'http://cdn.arwrath.com/8/85759.jpg',
+	'http://www.pmslweb.com/the-blog/wp-content/uploads/2013/11/16-my-penis-was-in-the-guinness-book-of-records-meme.jpg',
+	'http://makeameme.org/media/created/wow-i-never-tz2ot4.jpg',
+	'http://cdn.funnyism.com/eea2e999-aba1-473d-bc21-1711c93392e3.jpg',
+	'http://www.memehumor.com/wp-content/uploads/2011/02/penis-goes-in-640x640.jpg',
+	'http://www.penis.com/',
+	'http://en.wikipedia.org/wiki/Semantic_satiation',
+	'http://en.wikipedia.org/wiki/Penis_',
+	'http://www.sciencemag.org/content/203/4383/916.shortjoke',
+	'http://onlinelibrary.wiley.com/doi/10.1046/j.1464-410X.1996.85023.x/abstract',
+	'http://en.inkei.net/',
+	'http://www.livescience.com/14891-finger-length-ratio-penis-size.html',
+	'http://en.wiktionary.org/wiki/Penis',
+        'http://www.huffingtonpost.com/nico-lang/i-dont-want-to-see-a-pict_b_4659013.html',
+        'http://www.huffingtonpost.com/nico-lang/i-dont-want-to-see-a-pict_b_4659013.html',
+        'http://www.youtube.com/watch?v=5O1ipRDrw6w',       
+];
+	
+
+function getPenisPhrase() {
+	return rouletteSample([
+		{prob:100.0,func:text("penis")}, // average penis (~6 in)
+		{prob:30.0,func:function() { // clicky penis
+			link = uniformRouletteSample(penisLinks);
+			return "<a href=\"" + link + "\" class=\"clicky-penis\">penis" + "</a>";
+		}},
+		{prob:3.0,func:function() {  // loud penis
+			return 'penis' + Array(randRange(1,30)).join('!') + Array(randRange(1,3)).join('1')
+		}},
+		{prob:0.2,func:function() {  // lots of penis
+			return Array(randRange(1,200)).join('penis')
+		}},
+		{prob:0.005,func:function() {  // lots and lots and lots of penis
+			return Array(randRange(1,1000)).join('penis')
+		}},
+		{prob:10.0,func:text("penises")}, // many penis
+		{prob:10.0,func:text("<i>penis</i>")}, // fancy penis
+		{prob:1.0,func:text("pepenis")},
+		{prob:1.0,func:function() {
+			return 'penis' + Array(randRange(1,40)).join('es');
+		}},
+		{prob:1.0,func:text("peniesesesses")},
+		{prob:2.0,func:text("pens")}, // many pen
+		{prob:2.0,func:text("dick")}, // a man's name
+		{prob:2.0,func:text("cock")}, // a male hen
+		{prob:5.0,func:text("penii")}, // Latin dicks
+		{prob:2.0,func:text("peanuts")}, // such allergies
+		{prob:2.0,func:text("penny")}, // 
+		{prob:5.0,func:text("swiss cheese")}, // cheesy
+		{prob:5.0,func:text("swiss cheese flavored penis")}, 
+		{prob:2.0,func:text("pennsylvania")}, // I apologize to the people of pennsylvania
+		{prob:2.0,func:text("testicles")}, // not penis
+		{prob:10.0,func:text("vagina")}, // really not penis
+		{prob:2.0,func:text("big black penis")}, // it's not plagarism if you change one word
+		{prob:1.0,func:text("bigger blacker penis")}, // see above
+		{prob:0.001,func:text("biggest blackest penis")}, // see above
+		{prob:1.0,func:text("hello my name is elder penis and i would like to share with you the most amazing penis")},
+		{prob:1.0,func:text("penis.avi")},
+		{prob:1.0,func:text("such erection many hugeness")}, // dogepenis
+		{prob:1.0,func:text("batman")}, // because
+		{prob:1.0,func:text("egg")}, // ask Will W., I don't understand either
+		{prob:1.0,func:text("if egg")},
+		{prob:0.5,func:text("end egg")},
+		{prob:1.0,func:text("what rhymes with penis")}, // venus
+		{prob:1.0,func:text("this page intentionally left full of penises")}, // 
+		{prob:1.0,func:text("#yoloswagpenis")}, // 
+		{prob:1.0,func:text("i was a penis before it was cool")},
+		{prob:0.1,func:text("send bitcoins to 1Dg2vvc2eBnyRodoCnd6AHud4aNZZUSp4X")},
+		{prob:1.0,func:text("i need help")},
+		{prob:1.0,func:text("helpimtrappedinapenisfactory")},
+		{prob:1.0,func:text("you should be studying right now")}, // not sure if I'm talking to myself or actually to "you", either way this is correct
+		{prob:1.0,func:text("too much penis causes semantic satiation")}, 
+		{prob:2.0,func:text("where is freud when you need him")},
+		{prob:1.0,func:text("where is my penis when you need him")},		
+		{prob:1.0,func:text("the penis is a lie")},
+		{prob:1.0,func:text("the cake is a penis")}, 
+		{prob:1.0,func:text("insert subliminal message")},
+		{prob:1.0,func:text("there is no penis")},
+		{prob:1.0,func:text("this isnt a penis")},
+		{prob:1.0,func:text("life is nothing but 42 penises")},
+		{prob:1.0,func:text("for penis in penises print penis")},
+		{prob:1.0,func:text("if you like this page and your over 12 you need help")},
+		{prob:1.0,func:text("the only thing longer than my penis is everything")},
+		{prob:1.0,func:text("send all compliments to penisswisscheese@gmail.com")},
+		{prob:1.0,func:text("fork me on github at https://github.com/penisswisscheese/penis")},
+		{prob:1.0,func:text("which weighs more a pound of penis or a pound of dick")},
+		{prob:1.0,func:text("the longest penis is 13.5 in")},
+                {prob:1.0,func:text("what does all this penis mean")},
+                {prob:1.0,func:text("its not how big it is oh wait it actually is")},
+		{prob:1.0,func:text("#penis")},
+		{prob:1.0,func:text("do your penis hang low do it wobble to and fro")}, // batman
+                {prob:1.0,func:function() {  // long penis
+			var penis = "";
+			if (randRange(1,5) < 2) penis += Array(randRange(1,50) + 1).join('p'); else penis += "p";
+			if (randRange(1,5) < 2) penis += Array(randRange(1,50) + 1).join('e'); else penis += "e";
+			if (randRange(1,5) < 2) penis += Array(randRange(1,50) + 1).join('n'); else penis += "n";
+			if (randRange(1,5) < 2) penis += Array(randRange(1,50) + 1).join('i'); else penis += "i";
+			if (randRange(1,5) < 2) penis += Array(randRange(1,50) + 1).join('s'); else penis += "s";
+			return penis;
+		}},
+		{prob:0.03,func:function() {  // very long penis
+			var penis = "";
+			if (randRange(1,5) < 3) penis += Array(randRange(1,5000) + 1).join('p'); else penis += "p";
+			if (randRange(1,5) < 3) penis += Array(randRange(1,5000) + 1).join('e'); else penis += "e";
+			if (randRange(1,5) < 3) penis += Array(randRange(1,5000) + 1).join('n'); else penis += "n";
+			if (randRange(1,5) < 3) penis += Array(randRange(1,5000) + 1).join('i'); else penis += "i";
+			if (randRange(1,5) < 3) penis += Array(randRange(1,5000) + 1).join('s'); else penis += "s";
+			return penis;
+		}},
+                {prob:0.8,func:text("<span class='rainbow'>penis</span>")}
+		]);
+}
+
+$(document).ready(function(){
+
+
+	(function($) {
+    $.fn.textOverflows = function() {
+        return this.get(0).scrollHeight > this.height() + 100; // the 100 is arbitrary, but it helps ensure the penises flow off the page
+    }
+	})(jQuery);
+
+	var penis = ""
+	
+	while (!$("#penis").textOverflows()) {
+		for (var i = 0; i < 1000; i++) {
+			penis += getPenisPhrase() + " ";
+		}
+		$("#penis").append(penis);
+		penis = "";
+	}
+});
+
+</script>
+
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100698075); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100698075ns.gif" /></p></noscript>
+
+</head>
+<body>
+<div id="penis" class="penis">penis</div>
+</body>
+</html>
